@@ -12,7 +12,21 @@ mp_hands = mp.solutions.hands  # Hands model
 mp_drawing_styles = mp.solutions.drawing_styles  # Drawing Styles
 mp_drawing = mp.solutions.drawing_utils  # Drawing utilities
 
+def draw_landmarks(image, results):
+    mp_drawing.draw_landmarks(image, results.left_hand_landmarks, mp_hands.HAND_CONNECTIONS) # Draw left hand connections
+    mp_drawing.draw_landmarks(image, results.right_hand_landmarks, mp_hands.HAND_CONNECTIONS) # Draw right hand connections
 
+def draw_styled_landmarks(image, results):
+    # Draw left hand connections
+    mp_drawing.draw_landmarks(image, results.left_hand_landmarks, mp_hands.HAND_CONNECTIONS,
+                             mp_drawing.DrawingSpec(color=(121,22,76), thickness=2, circle_radius=4),
+                             mp_drawing.DrawingSpec(color=(121,44,250), thickness=2, circle_radius=2)
+                             )
+    # Draw right hand connections
+    mp_drawing.draw_landmarks(image, results.right_hand_landmarks, mp_hands.HAND_CONNECTIONS,
+                             mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=4),
+                             mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2)
+                             )
 
 
 
@@ -32,21 +46,13 @@ with mp_hands.Hands(
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         results = hands.process(image)
         image.flags.writeable = True
-        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR);
 
         # this block of codes below here doesn't work. :/ I am trying to make a different color for the left and
         # right hands. For the left hand, it will be blue and the right hand will be red. Also, I want to make the
         # circle on each keypoint larger.
 
-        if results.left_hand_landmarks.landmark & results.right_hand_landmarks.landmark:  # it targets the hands
-            for hand_landmarks in results.left_hand_landmarks, results.right_hand_landmarks :
-        #         # Draw the hand annotations on the image.
-                mp_drawing.hand_landmarks(image,results.left_hand_landmarks,mp_hands.HAND_CONNECTIONS,
-                                          mp_drawing.DrawingSpec(color= (121,22,76), thickness = 2, circle_radius = 4),
-                                          mp_drawing.DrawingSpec(color= (121,44,250), thickness = 2, circle_radius = 2)),
-                mp_drawing.hand_landmarks(image, results.right_hand_landmarks, mp.hand.HAND_CONNECTIONS,
-                                            mp.drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=4),
-                                            mp.drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2))
+        draw_styled_landmarks(image,results);
 
 
         cv2.imshow('OpenCV Feed', cv2.flip(image, 1))  # it is the name of the image
@@ -55,3 +61,4 @@ with mp_hands.Hands(
             break
 cap.release()
 cv2.destroyAllWindows()  # close down the image
+
