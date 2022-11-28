@@ -44,10 +44,10 @@ while True:
             hGap = math.ceil((imgSize - hCal) / 2)
             imgWhite[hGap:hCal + hGap, :] = imgResize
 
-        cv2.imshow("ImageCrop", imgCrop)
-        cv2.imshow("ImageWhite", imgWhite)
+        #cv2.imshow("ImageCrop", imgCrop)
+        #cv2.imshow("ImageWhite", imgWhite)
 
-    cv2.imshow("Image", img)
+    #cv2.imshow("Image", img)
     key = cv2.waitKey(1)
     if key == ord("s"):
         counter += 1
