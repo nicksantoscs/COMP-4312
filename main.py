@@ -3,16 +3,22 @@ from cvzone.HandTrackingModule import HandDetector
 import numpy as np
 import math
 import time
+from flask import Response
+from flask import Flask
+from flask import render_template
 import os
+from test import Video
 
 cap = cv2.VideoCapture(0)
 detector = HandDetector(maxHands=1)
+app = Flask(__name__)
 
 offset = 20
 imgSize = 300
 
 folder = "Data/C"
 counter = 0
+cap = cv2.VideoCapture(0)
 
 while True:
     success, img = cap.read()
