@@ -1,0 +1,27 @@
+{% extends 'base.html'%}{%block content%}
+
+<center>
+    <div style="background-color: #c3c3c3; border-radius: 15px; border: width 2px; max-width: 80%">
+        <img src="{{ url_for('video_feed') }}" width="90%" height="500px" style="padding: 10px;">
+    </div>
+    <p style ="color:red">Make sure that you are fingerspelling inside the screen. If you try to fingerspell at the edge of the screen, it'll crash and will require you to refresh the page.</p>
+</center>
+
+{% endblock %}
+
+
+
+<!--
+<html>
+<head>
+    <title>Interactive Finger Spelling</title>
+</head>
+<body>
+    <h1>Finger Spelling</h1>
+    <div style="background-color: pink;">
+
+    <img src="{{ url_for('video_feed') }}" style="border: 5px 2px solid">
+</div>
+</body>
+</html>
+-->
