@@ -4,6 +4,7 @@ from cvzone.HandTrackingModule import HandDetector
 import numpy as np
 import math
 import time
+import os
 
 cap = cv2.VideoCapture(0)
 detector = HandDetector(maxHands=1)
@@ -12,7 +13,21 @@ detector = HandDetector(maxHands=1)
 offset = 20
 imgSize = 300
 
-folder = "Data/"
+
+# # it is going to export the data and numpy arrays
+# DATA_PATH = os.path.join('Data')
+# # the program will identify which letter did the user signed
+# actions = np.array(
+#     ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+#      'X', 'Y', 'Z'])
+#
+# for action in actions:
+#         try:
+#             os.makedirs(os.path.join(DATA_PATH, action))
+#         except:
+#             pass
+
+folder = "Data/Z"
 counter = 0
 
 while True:
