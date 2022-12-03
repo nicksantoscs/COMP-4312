@@ -27,7 +27,7 @@ imgSize = 300
 #         except:
 #             pass
 
-folder = "Data/Z"
+folder = "Data/A"
 counter = 0
 
 while True:
