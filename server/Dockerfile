@@ -1,13 +1,18 @@
 
 # 1
-FROM python:3.9
+FROM python:3
 
-# 2
-RUN pip install Flask gunicorn
+ENV PYTHONUNBUFFERED true
 
 # 3
-COPY src/ /app
-WORKDIR /app
+ENV APP_HOME /app
+WORKDIR $APP_HOME
+COPY . ./
+
+
+# 2
+RUN pip install -r requirements.txt
+RUN pip install gunicorn
 
 # 4
 ENV PORT 8080
