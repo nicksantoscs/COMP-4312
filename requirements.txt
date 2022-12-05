@@ -20,7 +20,7 @@ imutils==0.5.4
 ipython-genutils==0.2.0
 itsdangerous==1.1.0
 kaggle==1.5.12
-keras==2.10.0
+keras==2.9.0
 Keras-Preprocessing==1.1.2
 libclang==14.0.6
 Markdown==3.4.1
