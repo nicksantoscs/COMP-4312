@@ -14,9 +14,9 @@ offset = 20
 imgSize = 300
 
 
-# # it is going to export the data and numpy arrays
+# # # it is going to export the data and numpy arrays
 # DATA_PATH = os.path.join('Data')
-# # the program will identify which letter did the user signed
+# # # the program will identify which letter did the user signed
 # actions = np.array(
 #     ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
 #      'X', 'Y', 'Z'])
@@ -27,7 +27,7 @@ imgSize = 300
 #         except:
 #             pass
 
-folder = "Data/A"
+folder = "Data/Y"
 counter = 0
 
 while True:
